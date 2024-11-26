@@ -28,12 +28,14 @@ export const fetchSourcesCount = createAsyncThunk('sources/fetchSourcesCount', a
 });
 
 export const fetchTopHeadlines = createAsyncThunk('sources/fetchTopHeadlines', async (id) => {
-    const response = await axios.get(url, {
+    const response = await axios.get('https://newsapi.org/v2/top-headlines', {
         params: {
             apiKey: api_key,
             sources:id
         }
     })
+    console.log(response);
+    
 
     return response.data.articles || []
 })
