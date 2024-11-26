@@ -13,13 +13,13 @@ const Sources = () => {
   const [showCategory, setShowCategory] = useState(false);
   const [showCountry, setShowCountry] = useState(false);
 
-  useEffect(() => {
-    dispatch(fetchSources(category));
-  }, [category]);
+  // useEffect(() => {
+  //   dispatch(fetchSources(category));
+  // }, [category]);
 
-  useEffect(() => {
-    dispatch(fetchSourcesCount(country));
-  }, [country]);
+  // useEffect(() => {
+  //   dispatch(fetchSourcesCount(country));
+  // }, [country]);
 
   return (
       <div className="flex flex-col items-start">
@@ -81,16 +81,17 @@ const Sources = () => {
           </div>
      
       {/* Sources List */}
-      <div className="flex flex-col mt-4 w-full">
-        <p>News Sources:</p>
+      <div className="flex flex-col mt-4 w-full items-center">
+        <p className="font-poppins font-extralight text-3xl mb-5">News Sources</p>
         <div className="grid grid-cols-1 gap-4 w-full">
           {sources.length > 0 ? (
             sources.map((source) => (
-              <div key={source.id} className="border p-4 w-full">
+              <div key={source.id} className="shadow-xl bg-stone-100 w-full p-5">
                 {/* Link to the Source Details Page */}
                 <Link to={`/sources/${source.id}`}>
-                  <p>{source.name}</p>
+                  <p className="font-poppins font-medium">{source.name}</p>
                 </Link>
+                <p className="font-nunito font-light">{source.description}</p>
               </div>
             ))
           ) : (
