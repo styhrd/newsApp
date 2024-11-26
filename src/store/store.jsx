@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import sourcesReducer from './sourcesSlice'
+import latestReducer from './latestSlice'
 
 const store = configureStore({
     reducer: {
-        sources: sourcesReducer
+        sources: sourcesReducer,
+        latest: latestReducer
     }
 })
 

@@ -6,11 +6,11 @@
 
 /* Base icon styling */
 .icon {
-    @apply text-3xl text-[#888888];
+  @apply text-2xl text-[#888888] lg:text-xl;
 }
 
 /* Active state styling */
 .icon.active {
-    @apply text-stone-700;
-    /* Ensure no size change when active */
+  @apply text-stone-700;
+  /* Ensure no size change when active */
 }

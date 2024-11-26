@@ -14,13 +14,13 @@ const Navbar = () => {
             }
         };
 
-        // Initial check
+        
         handleResize();
 
-        // Add event listener for resize
+  
         window.addEventListener('resize', handleResize);
 
-        // Cleanup event listener on unmount
+      
         return () => {
             window.removeEventListener('resize', handleResize);
         };
@@ -38,8 +38,8 @@ const Navbar = () => {
             ></i>
 
             <div
-                className={`flex flex-col items-center space-y-2 transition-all duration-300 ease-in-out lg:flex-row lg:justify-between lg:justify-center w-full ${shownav ? 'mt-2 max-h-screen opacity-100' : 'max-h-0 opacity-0'
-                    } overflow-hidden lg:mt-0 lg:items-center lg:space-y-0 lg:px-6`}
+                className={`flex flex-col items-center space-y-2 transition-all duration-300 ease-in-out lg:flex-row lg:justify-between  w-full ${shownav ? 'mt-2 max-h-screen opacity-100' : 'max-h-0 opacity-0'
+                    } overflow-hidden lg:mt-0 lg:items-center lg:space-y-0 lg:px-10`}
             >
                 <Link
                     to="/"
