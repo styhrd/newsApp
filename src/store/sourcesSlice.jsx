@@ -27,11 +27,23 @@ export const fetchSourcesCount = createAsyncThunk('sources/fetchSourcesCount', a
     return response.data.sources || [];
 });
 
+export const fetchTopHeadlines = createAsyncThunk('sources/fetchTopHeadlines', async (id) => {
+    const response = await axios.get(url, {
+        params: {
+            apiKey: api_key,
+            sources:id
+        }
+    })
+
+    return response.data.articles || []
+})
+
 const sourcesSlice = createSlice({
     name: "sources",
     initialState: {
         sources: [], // All sources
-        selectedSource: null // Details of the selected source
+        selectedSource: null,
+        selectedHead:[]// Details of the selected source
     },
     reducers: {
         // Reducer to select a source by its id
@@ -47,6 +59,10 @@ const sourcesSlice = createSlice({
             })
             .addCase(fetchSourcesCount.fulfilled, (state, action) => {
                 state.sources = action.payload; // Store fetched sources by country
+            })
+
+            .addCase(fetchTopHeadlines.fulfilled, (state, action) => {
+                state.selectedHead = action.payload; // Store fetched sources by country
             });
     }
 });

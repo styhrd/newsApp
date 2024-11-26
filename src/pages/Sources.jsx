@@ -13,13 +13,13 @@ const Sources = () => {
   const [showCategory, setShowCategory] = useState(false);
   const [showCountry, setShowCountry] = useState(false);
 
-//   useEffect(() => {
-//     dispatch(fetchSources(category));
-//   }, [category]);
+  useEffect(() => {
+    dispatch(fetchSources(category));
+  }, [category]);
 
-//   useEffect(() => {
-//     dispatch(fetchSourcesCount(country));
-//   }, [country]);
+  useEffect(() => {
+    dispatch(fetchSourcesCount(country));
+  }, [country]);
 
   return (
       <div className="flex flex-col items-start">
@@ -88,7 +88,7 @@ const Sources = () => {
             sources.map((source) => (
               <div key={source.id} className="border p-4 w-full">
                 {/* Link to the Source Details Page */}
-                <Link to={`/source/${source.id}`}>
+                <Link to={`/sources/${source.id}`}>
                   <p>{source.name}</p>
                 </Link>
               </div>
