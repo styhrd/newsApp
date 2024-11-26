@@ -8,7 +8,7 @@ export const fetchLatest = createAsyncThunk('latest/fetchLatest', async (pagenum
     const response = await axios.get(url, {
         params: {
             apiKey: api_key,
-            sortBy: publishedAt,
+            sortBy: 'publishedAt',
             pageSize: 10,
             page:pagenum
         }
@@ -20,11 +20,9 @@ export const fetchLatest = createAsyncThunk('latest/fetchLatest', async (pagenum
 const latestSlice = createSlice({
     name: "latest",
     initialState: {
-        latestNews:[]
+        latestNews:[],
     },
-    reducers: {
-        
-    },
+
     extraReducers: (builder) => {
         builder
             .addCase(fetchLatest.fulfilled, (state, action) => {
